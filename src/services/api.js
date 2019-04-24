@@ -125,14 +125,32 @@ export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
 
-export async function getTypeList() {
-  return request('/regression_test/type/list');
+export async function getTypeList(params) {
+  return request('/regression_test/type/list', {
+    method: 'POST',
+    data: params,
+  });
 }
 
 export async function createType(params) {
   return request('/regression_test/type/create', {
     method: 'POST',
     data: params,
+  });
+}
+
+export async function updateType(params) {
+  return request(`/regression_test/type/modify/?${stringify(params.typeId)}`, {
+    method: 'PUT',
+    data: {
+      ...params.body,
+    },
+  });
+}
+
+export async function removeType(typeId) {
+  return request(`/regression_test/type/delete/?${typeId}`, {
+    method: 'DELETE',
   });
 }
 
