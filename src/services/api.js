@@ -125,8 +125,8 @@ export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
 
-export async function getTypeList(params) {
-  return request('/regression_test/type/list', {
+export async function getType(params) {
+  return request('/regression_test/type/get', {
     method: 'POST',
     data: params,
   });
@@ -140,7 +140,7 @@ export async function createType(params) {
 }
 
 export async function updateType(params) {
-  return request(`/regression_test/type/modify/?${stringify(params.typeId)}`, {
+  return request(`/regression_test/type/modify/${(params.typeId)}`, {
     method: 'PUT',
     data: {
       ...params.body,
@@ -148,9 +148,16 @@ export async function updateType(params) {
   });
 }
 
-export async function removeType(typeId) {
-  return request(`/regression_test/type/delete/?${typeId}`, {
+export async function removeType(params) {
+  return request(`/regression_test/type/delete/${(params.typeId)}`, {
     method: 'DELETE',
+  });
+}
+
+export async function batchRemoveType(params) {
+  return request('/regression_test/type/batch_delete', {
+    method: 'POST',
+    data: params,
   });
 }
 
