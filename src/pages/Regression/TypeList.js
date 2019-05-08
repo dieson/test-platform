@@ -25,19 +25,13 @@ import {
 import StandardTable from '@/components/StandardTable';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
-import styles from './TypeList.less';
+import styles from './style.less';
 
 const FormItem = Form.Item;
-// const { Step } = Steps;
-// const { TextArea } = Input;
-// const { Option } = Select;
-// const RadioGroup = Radio.Group;
 const getValue = obj =>
   Object.keys(obj)
     .map(key => obj[key])
     .join(',');
-// const statusMap = ['default', 'processing', 'success', 'error'];
-// const status = ['关闭', '运行中', '已上线', '异常'];
 
 //新建窗口
 const CreateForm = Form.create()(props => {
