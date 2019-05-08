@@ -58,6 +58,11 @@ export default [
             name: 'typelist',
             component: './Regression/TypeList',
           },
+          {
+            path: 'regression/set-list',
+            name: 'setlist',
+            component: './Regression/SetList',
+          },
         ],
       },
       // forms
