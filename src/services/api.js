@@ -125,6 +125,10 @@ export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
 
+export async function queryTypeList(){
+  return request('/regression_test/type/list');
+}
+
 export async function getType(params) {
   return request('/regression_test/type/get', {
     method: 'POST',
@@ -163,4 +167,44 @@ export async function batchRemoveType(params) {
 
 export async function getTypeDetail(typeId) {
   return request(`/regression_test/type/${typeId}`);
+}
+
+export async function getSet(params) {
+  return request('/regression_test/test_set/get', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function createSet(params) {
+  return request('/regression_test/test_set/create', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function updateSet(params) {
+  return request(`/regression_test/test_set/modify/${(params.setId)}`, {
+    method: 'PUT',
+    data: {
+      ...params.body,
+    },
+  });
+}
+
+export async function removeSet(params) {
+  return request(`/regression_test/test_set/delete/${(params.setId)}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function batchRemoveSet(params) {
+  return request('/regression_test/test_set/batch_delete', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function getSetDetail(setId) {
+  return request(`/regression_test/test_set/${setId}`);
 }
