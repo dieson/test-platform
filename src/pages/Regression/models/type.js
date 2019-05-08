@@ -1,4 +1,4 @@
-import { batchRemoveType, getType, createType, updateType, removeType } from '@/services/api';
+import { queryTypeList, batchRemoveType, getType, createType, updateType, removeType } from '@/services/api';
 
 export default {
     namespace: 'type',
@@ -7,6 +7,7 @@ export default {
         data: {
             list: [],
             pagination: {},
+            typeList: [],
         },
         code: undefined,
     },
@@ -14,9 +15,9 @@ export default {
     effects: {
         *fetch({ payload }, { call, put }) {
             const response = yield call(getType, payload);
-            
+
             if (response.code === 2004) {
-                
+
                 yield put({
                     type: 'clear_list',
                     payload: response,
@@ -39,6 +40,14 @@ export default {
                     payload: result,
                 });
             }
+        },
+
+        *list({ payload }, { call, put }) {
+            const response = yield call(queryTypeList, payload);
+            yield put({
+                type: 'save_type_list',
+                payload: response,
+            });
         },
 
         *add({ payload, callback }, { call, put }) {
@@ -90,10 +99,17 @@ export default {
             };
         },
 
-        clear_list(state, payload) {
+        save_type_list(state, action) {
             return {
                 ...state,
-                code: payload.code,
+                typeList: action.payload.data,
+            }
+        },
+
+        clear_list(state, action) {
+            return {
+                ...state,
+                code: action.payload.code,
                 data: { list: [] },
             };
         },
