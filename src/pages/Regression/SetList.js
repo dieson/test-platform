@@ -266,6 +266,10 @@ class SetList extends PureComponent {
       type: 'set/fetch',
       payload: this.paginationProps,
     });
+  }
+
+  handleGetTypeList = () => {
+    const { dispatch } = this.props;
 
     dispatch({
       type: 'set/getTypeList',
@@ -389,6 +393,7 @@ class SetList extends PureComponent {
     this.setState({
       modalVisible: !!flag,
     });
+    this.handleGetTypeList();
   };
 
   //控制打开更新窗口
@@ -441,7 +446,7 @@ class SetList extends PureComponent {
       form: { getFieldDecorator },
       set: { typeList },
     } = this.props;
-    
+
     return (
       <Form onSubmit={this.handleSearch} layout="inline">
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
@@ -558,7 +563,7 @@ class SetList extends PureComponent {
 
   render() {
     const {
-      set: { data, typeList },
+      set: { data,typeList },
       loading,
     } = this.props;
 
