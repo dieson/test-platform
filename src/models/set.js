@@ -84,10 +84,12 @@ export default {
         *getTypeList({ payload }, { call, put }) {
             const response = yield call(queryTypeList, payload);
 
-            yield put({
-                type: 'save_type_list',
-                payload: response,
-            });
+            if (response.code === 1000) {
+                yield put({
+                    type: 'save_type_list',
+                    payload: response,
+                });
+            }
         },
 
     },
