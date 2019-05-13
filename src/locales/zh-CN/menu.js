@@ -10,6 +10,7 @@ export default {
   'menu.regression': '算法回归测试',
   'menu.regression.typelist': '测试类型',
   'menu.regression.setlist': '测试集',
+  'menu.regression.uploadtemplatelist': '上传格式',
   'menu.form': '表单页',
   'menu.form.basicform': '基础表单',
   'menu.form.stepform': '分步表单',

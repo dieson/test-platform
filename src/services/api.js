@@ -125,7 +125,7 @@ export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
 
-export async function queryTypeList(){
+export async function queryTypeList() {
   return request('/regression_test/type/list');
 }
 
@@ -169,6 +169,10 @@ export async function getTypeDetail(typeId) {
   return request(`/regression_test/type/${typeId}`);
 }
 
+export async function querySetList() {
+  return request('/regression_test/test_set/list');
+}
+
 export async function getSet(params) {
   return request('/regression_test/test_set/get', {
     method: 'POST',
@@ -207,4 +211,51 @@ export async function batchRemoveSet(params) {
 
 export async function getSetDetail(setId) {
   return request(`/regression_test/test_set/${setId}`);
+}
+
+export async function getTestCase(params) {
+  return request('/regression_test/test_case/get', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function queryUploadTemplate() {
+  return request('/regression_test/upload_template/list');
+}
+
+export async function getUploadTemplate(params) {
+  return request('/regression_test/upload_template/get', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function createUploadTemplate(params) {
+  return request('/regression_test/upload_template/create', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function updateUploadTemplate(params) {
+  return request(`/regression_test/upload_template/modify/${(params.id)}`, {
+    method: 'PUT',
+    data: {
+      ...params.body,
+    },
+  });
+}
+
+export async function removeUploadTemplate(params) {
+  return request(`/regression_test/upload_template/delete/${(params.id)}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function batchRemoveUploadTemplate(params) {
+  return request('/regression_test/upload_template/batch_delete', {
+    method: 'POST',
+    data: params,
+  });
 }

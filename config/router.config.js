@@ -63,6 +63,11 @@ export default [
             name: 'setlist',
             component: './Regression/SetList',
           },
+          {
+            path: 'regression/upload-template',
+            name: 'uploadtemplatelist',
+            component: './Regression/UploadTemplateList',
+          },
         ],
       },
       // forms
