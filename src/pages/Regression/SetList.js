@@ -94,7 +94,7 @@ class UpdateForm extends PureComponent {
         id: props.values.id,
         name: props.values.name,
         desc: props.values.desc,
-        testDatasetTypesInfo: { name: props.values.testDatasetTypesInfo.name },
+        testDatasetTypesInfo: { id: props.values.testDatasetTypesInfo.id },
       },
     };
   }
@@ -136,7 +136,7 @@ class UpdateForm extends PureComponent {
       <FormItem key="datasetTypeId" labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="测试类型">
         {form.getFieldDecorator('datasetTypeId', {
           rules: [{ required: true, message: '请选择试类型！' }],
-          initialValue: formVals.testDatasetTypesInfo.name,
+          initialValue: formVals.testDatasetTypesInfo.id,
         })(<Select placeholder="请选择" style={{ width: '100%' }}>
           {
             typeList.length && typeList.map(item => (
@@ -266,10 +266,6 @@ class SetList extends PureComponent {
       type: 'set/fetch',
       payload: this.paginationProps,
     });
-  }
-
-  handleGetTypeList = () => {
-    const { dispatch } = this.props;
 
     dispatch({
       type: 'set/getTypeList',
@@ -393,7 +389,6 @@ class SetList extends PureComponent {
     this.setState({
       modalVisible: !!flag,
     });
-    this.handleGetTypeList();
   };
 
   //控制打开更新窗口
@@ -563,7 +558,7 @@ class SetList extends PureComponent {
 
   render() {
     const {
-      set: { data,typeList },
+      set: { data, typeList },
       loading,
     } = this.props;
 
