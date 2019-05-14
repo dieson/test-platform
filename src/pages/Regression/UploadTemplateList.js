@@ -336,7 +336,7 @@ class UploadTemplateList extends PureComponent {
   handleBatchDelete = () => {
     Modal.confirm({
       title: '批量删除数据格式',
-      content: '确定批量数据格式吗？',
+      content: '确定批量删除数据格式吗？',
       okText: '确认',
       cancelText: '取消',
       onOk: () => this.batchDeleteItem(),
