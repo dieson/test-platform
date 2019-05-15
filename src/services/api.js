@@ -259,3 +259,46 @@ export async function batchRemoveUploadTemplate(params) {
     data: params,
   });
 }
+
+export async function queryInputTemplate() {
+  return request('/regression_test/input_template/list');
+}
+
+export async function getInputTemplate(params) {
+  return request('/regression_test/input_template/get', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function createInputTemplate(params) {
+  return request('/regression_test/input_template/create', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function updateInputTemplate(params) {
+  return request(`/regression_test/input_template/modify/${params.id}`, {
+    method: 'PUT',
+    data: {
+      ...params.body,
+    },
+  });
+}
+
+export async function removeInputTemplate(params) {
+  return request(`/regression_test/input_template/delete/${params.id}`, {
+    method: 'DELETE',
+    data: {
+      ...params.body,
+    },
+  });
+}
+
+export async function batchRemoveInputTemplate(params) {
+  return request('/regression_test/input_template/batch_delete', {
+    method: 'POST',
+    data: params,
+  });
+}

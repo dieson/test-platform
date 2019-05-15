@@ -11,6 +11,7 @@ export default {
   'menu.regression.typelist': '测试类型',
   'menu.regression.setlist': '测试集',
   'menu.regression.uploadtemplatelist': '上传格式',
+  'menu.regression.inputtemplatelist': '测试模板',
   'menu.form': '表单页',
   'menu.form.basicform': '基础表单',
   'menu.form.stepform': '分步表单',
