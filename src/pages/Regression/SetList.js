@@ -246,7 +246,7 @@ class SetList extends PureComponent {
         if (res.code === 1000) {
           message.success('删除成功');
         } else {
-          message.error('删除失败')
+          message.error(res.msg)
         }
         this.handleGetList();
       },
@@ -346,7 +346,7 @@ class SetList extends PureComponent {
         if (res.code === 1000) {
           message.success('删除成功');
         } else {
-          message.error('删除失败')
+          message.error(res.msg)
         }
         this.handleGetList();
       },
@@ -523,7 +523,7 @@ class SetList extends PureComponent {
           message.success('创建成功');
           this.handleModalVisible();
         } else {
-          message.error('创建失败')
+          message.error(res.msg);
         }
         this.handleGetList();
       },
@@ -549,7 +549,7 @@ class SetList extends PureComponent {
           message.success('更新成功');
           this.handleUpdateModalVisible();
         } else {
-          message.error('更新失败')
+          message.error(res.msg);
         }
         this.handleGetList();
       },

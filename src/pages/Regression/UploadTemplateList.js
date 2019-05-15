@@ -129,7 +129,6 @@ class UpdateForm extends PureComponent {
 
   renderContent = (formVals) => {
     const { form, typeList } = this.props;
-    console.log(this.props);
 
     return [
       <FormItem key="datasetTypeId" labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="测试类型">
@@ -267,7 +266,7 @@ class UploadTemplateList extends PureComponent {
         if (res.code === 1000) {
           message.success('删除成功');
         } else {
-          message.error('删除失败')
+          message.error(res.msg)
         }
         this.handleGetList();
       },
@@ -358,7 +357,7 @@ class UploadTemplateList extends PureComponent {
         if (res.code === 1000) {
           message.success('删除成功');
         } else {
-          message.error('删除失败')
+          message.error(res.msg)
         }
         this.handleGetList();
       },
@@ -473,7 +472,7 @@ class UploadTemplateList extends PureComponent {
           message.success('创建成功');
           this.handleModalVisible();
         } else {
-          message.error('创建失败')
+          message.error(res.msg);
         }
         this.handleGetList();
       },
@@ -484,7 +483,7 @@ class UploadTemplateList extends PureComponent {
   handleUpdate = fields => {
     const { dispatch } = this.props;
     const { formValues } = this.state;
-    console.log(fields);
+    
     dispatch({
       type: 'upload/update',
       payload: {
@@ -502,7 +501,7 @@ class UploadTemplateList extends PureComponent {
           message.success('更新成功');
           this.handleUpdateModalVisible();
         } else {
-          message.error('更新失败')
+          message.error(res.msg);
         }
         this.handleGetList();
       },
@@ -514,7 +513,6 @@ class UploadTemplateList extends PureComponent {
       upload: { data, typeList },
       loading,
     } = this.props;
-    console.log(this.props);
 
     //selectRows选中的数据，modalVisible 新建规则的描述，
     const { selectedRows, modalVisible, updateModalVisible, stepFormValues } = this.state;
@@ -530,7 +528,7 @@ class UploadTemplateList extends PureComponent {
     };
 
     return (
-      <PageHeaderWrapper title="测试类型">
+      <PageHeaderWrapper title="上传格式">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderSimpleForm()}</div>

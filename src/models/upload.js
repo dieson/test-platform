@@ -15,7 +15,7 @@ export default {
     effects: {
         *fetch({ payload }, { call, put }) {
             const response = yield call(getUploadTemplate, payload);
-            console.log(response);
+            
             if (response.code === 2004) {
                 yield put({
                     type: 'clear_list',
