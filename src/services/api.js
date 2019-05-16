@@ -213,13 +213,6 @@ export async function getSetDetail(setId) {
   return request(`/regression_test/test_set/${setId}`);
 }
 
-export async function getTestCase(params) {
-  return request('/regression_test/test_case/get', {
-    method: 'POST',
-    data: params,
-  });
-}
-
 export async function queryUploadTemplate() {
   return request('/regression_test/upload_template/list');
 }
@@ -260,6 +253,10 @@ export async function batchRemoveUploadTemplate(params) {
   });
 }
 
+export async function detailUploadTemplate(params) {
+  return request(`/regression_test/upload_template/${(params.uploadTemplateId)}`);
+}
+
 export async function queryInputTemplate() {
   return request('/regression_test/input_template/list');
 }
@@ -290,14 +287,51 @@ export async function updateInputTemplate(params) {
 export async function removeInputTemplate(params) {
   return request(`/regression_test/input_template/delete/${params.id}`, {
     method: 'DELETE',
+  });
+}
+
+export async function batchRemoveInputTemplate(params) {
+  return request('/regression_test/input_template/batch_delete', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function queryTestCase() {
+  return request('/regression_test/test_case/list');
+}
+
+export async function getTestCase(params) {
+  return request('/regression_test/test_case/get', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function createTestCase(params) {
+  return request('/regression_test/test_case/create', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function updateTestCase(params) {
+  return request(`/regression_test/test_case/modify/${params.id}`, {
+    method: 'PUT',
     data: {
       ...params.body,
     },
   });
 }
 
-export async function batchRemoveInputTemplate(params) {
-  return request('/regression_test/input_template/batch_delete', {
+export async function removeTestCase(params) {
+  return request(`/regression_test/test_case/delete/${params.id}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function batchRemoveTestCase(params) {
+  return request('/regression_test/test_case/batch_delete', {
     method: 'POST',
     data: params,
   });
