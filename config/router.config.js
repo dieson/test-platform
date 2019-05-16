@@ -73,6 +73,11 @@ export default [
             name: 'inputtemplatelist',
             component: './Regression/InputTemplateList',
           },
+          {
+            path: 'regression/test-case',
+            name: 'testcaselist',
+            component: './Regression/TestCaseList',
+          },
         ],
       },
       // forms
