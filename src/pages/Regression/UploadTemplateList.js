@@ -44,7 +44,7 @@ const CreateForm = Form.create()(props => {
   return (
     <Modal
       destroyOnClose
-      title="新建上传格式"
+      title="新建字段类型"
       visible={modalVisible}
       onOk={okHandle}
       onCancel={() => handleModalVisible()}
@@ -177,7 +177,7 @@ class UpdateForm extends PureComponent {
     return (
       <Modal
         destroyOnClose
-        title="更新上传格式"
+        title="更新字段类型"
         visible={updateModalVisible}
         onOk={() => this.okUpdateHandle()}
         onCancel={() => handleUpdateModalVisible(false, values)}
@@ -528,7 +528,7 @@ class UploadTemplateList extends PureComponent {
     };
 
     return (
-      <PageHeaderWrapper title="上传格式">
+      <PageHeaderWrapper title="字段类型">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderSimpleForm()}</div>
