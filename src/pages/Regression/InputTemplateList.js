@@ -256,12 +256,6 @@ class InputTemplateList extends PureComponent {
     router.push(`/profile/basic/${id}`);
   };
 
-  viewItem = (text) => {
-    <Popover content={content} title="请求模板" trigger="hover">
-      ${text}
-    </Popover>
-  }
-
   componentDidMount() {
     const { dispatch } = this.props;
 
