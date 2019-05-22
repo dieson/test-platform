@@ -336,3 +336,50 @@ export async function batchRemoveTestCase(params) {
     data: params,
   });
 }
+
+export async function queryExecution() {
+  return request('/regression_test/executions/list');
+}
+
+export async function getExecution(params) {
+  return request('/regression_test/executions/get', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function createExecution(params) {
+  return request('/regression_test/executions/create', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function updateExecution(params) {
+  return request(`/regression_test/executions/modify/${params.id}`, {
+    method: 'PUT',
+    data: {
+      ...params.body,
+    },
+  });
+}
+
+export async function removeExecution(params) {
+  return request(`/regression_test/executions/delete/${params.id}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function batchRemoveExecution(params) {
+  return request('/regression_test/executions/batch_delete', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+export async function getExecutionResult(params) {
+  return request('/regression_test/execution_result/get', {
+    method: 'POST',
+    data: params,
+  });
+}
