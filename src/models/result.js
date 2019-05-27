@@ -2,6 +2,7 @@ import { getExecutionResult } from '@/services/api';
 
 export default {
     namespace: 'result',
+
     state: {
         data: {
             list: [],
@@ -10,7 +11,7 @@ export default {
         code: undefined,
     },
 
-    effect: {
+    effects: {
         *fetch({ payload }, { call, put }) {
             const response = yield call(getExecutionResult, payload);
 
@@ -38,7 +39,7 @@ export default {
                 });
             }
 
-        },
+        }
     },
 
     reducers: {
