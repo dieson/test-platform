@@ -57,7 +57,7 @@ class UserLayout extends Component {
       <DocumentTitle title={getPageTitle(pathname, breadcrumbNameMap)}>
         <div className={styles.container}>
           <div className={styles.lang}>
-            <SelectLang />
+            {/* <SelectLang /> */}
           </div>
           <div className={styles.content}>
             <div className={styles.top}>
