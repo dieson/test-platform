@@ -1,6 +1,6 @@
 import { routerRedux } from 'dva/router';
 import { stringify } from 'qs';
-import { fakeAccountLogin, getFakeCaptcha } from '@/services/api';
+import { fakeAccountLogin, getFakeCaptcha, logout } from '@/services/api';
 import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 import { reloadAuthorized } from '@/utils/Authorized';
@@ -18,7 +18,7 @@ export default {
     *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
       //因后台接口未添加currentAuthority字段，故做此供开发使用
-      // response['currentAuthority'] = 'admin';
+      response['currentAuthority'] = 'admin';
       yield put({
         type: 'changeLoginStatus',
         payload: response,
@@ -49,7 +49,8 @@ export default {
       yield call(getFakeCaptcha, payload);
     },
 
-    *logout(_, { put }) {
+    *logout({ payload }, { call, put }) {
+      const response = yield call(logout, payload);
       token.remove(response.token);
       yield put({
         type: 'changeLoginStatus',
