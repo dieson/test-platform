@@ -103,24 +103,6 @@ export async function updateFakeList(params) {
   });
 }
 
-export async function fakeAccountLogin(params) {
-  return request('/regression_test/user/login', {
-    method: 'POST',
-    data: params,
-  });
-}
-
-export async function logout() {
-  return request('/regression_test/user/logout');
-}
-
-export async function fakeRegister(params) {
-  return request('/regression_test/user/register', {
-    method: 'POST',
-    data: params,
-  });
-}
-
 export async function queryNotices(params = {}) {
   return request(`/api/notices?${stringify(params)}`);
 }
