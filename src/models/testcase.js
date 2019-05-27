@@ -79,10 +79,13 @@ export default {
 
         *getSetList({ payload }, { call, put }) {
             const response = yield call(querySetList, payload);
-            yield put({
-                type: 'save_set_list',
-                payload: response,
-            });
+            if (response.code === 1000) {
+                yield put({
+                    type: 'save_set_list',
+                    payload: response,
+                });
+            }
+            
         },
 
         *detailUploadTemplate({ payload }, { call, put }) {
