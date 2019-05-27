@@ -21,32 +21,32 @@ export default [
   {
     path: '/',
     component: '../layouts/BasicLayout',
-    // Routes: ['src/pages/Authorized'],
+    Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
-        routes: [
-          {
-            path: '/dashboard/analysis',
-            name: 'analysis',
-            component: './Dashboard/Analysis',
-          },
-          {
-            path: '/dashboard/monitor',
-            name: 'monitor',
-            component: './Dashboard/Monitor',
-          },
-          {
-            path: '/dashboard/workplace',
-            name: 'workplace',
-            component: './Dashboard/Workplace',
-          },
-        ],
-      },
+      { path: '/', redirect: '/regression/type-list', authority: ['admin', 'user'] },
+      // {
+      //   path: '/dashboard',
+      //   name: 'dashboard',
+      //   icon: 'dashboard',
+      //   routes: [
+      //     {
+      //       path: '/dashboard/analysis',
+      //       name: 'analysis',
+      //       component: './Dashboard/Analysis',
+      //     },
+      //     {
+      //       path: '/dashboard/monitor',
+      //       name: 'monitor',
+      //       component: './Dashboard/Monitor',
+      //     },
+      //     {
+      //       path: '/dashboard/workplace',
+      //       name: 'workplace',
+      //       component: './Dashboard/Workplace',
+      //     },
+      //   ],
+      // },
       // 回归测试列表
       {
         path: '/regression',
@@ -59,27 +59,27 @@ export default [
             component: './Regression/TypeList',
           },
           {
-            path: 'regression/set-list',
+            path: '/regression/set-list',
             name: 'setlist',
             component: './Regression/SetList',
           },
           {
-            path: 'regression/upload-template',
+            path: '/regression/upload-template',
             name: 'uploadtemplatelist',
             component: './Regression/UploadTemplateList',
           },
           {
-            path: 'regression/input-template',
+            path: '/regression/input-template',
             name: 'inputtemplatelist',
             component: './Regression/InputTemplateList',
           },
           {
-            path: 'regression/test-case',
+            path: '/regression/test-case',
             name: 'testcaselist',
             component: './Regression/TestCaseList',
           },
           {
-            path: 'regression/execution',
+            path: '/regression/execution',
             name: 'executionlist',
             component: './Regression/ExecutionList',
           },
@@ -186,23 +186,34 @@ export default [
         icon: 'profile',
         routes: [
           // profile
+          // {
+          //   path: '/profile/basic',
+          //   name: 'basic',
+          //   component: './Profile/BasicProfile',
+          // },
           {
-            path: '/profile/basic',
-            name: 'basic',
-            component: './Profile/BasicProfile',
+            path: '/profile/execution-result',
+            name: 'executionresult',
+            component: './Profile/ExecutionResultProfile',
           },
           {
-            path: '/profile/basic/:id',
-            name: 'basic',
+            path: '/profile/execution-result/:testExecutionId',
+            name: 'executionresult',
             hideInMenu: true,
-            component: './Profile/BasicProfile',
+            component: './Profile/ExecutionResultProfile',
           },
-          {
-            path: '/profile/advanced',
-            name: 'advanced',
-            authority: ['admin'],
-            component: './Profile/AdvancedProfile',
-          },
+          // {
+          //   path: '/profile/basic/:id',
+          //   name: 'basic',
+          //   hideInMenu: true,
+          //   component: './Profile/BasicProfile',
+          // },
+          // {
+          //   path: '/profile/advanced',
+          //   name: 'advanced',
+          //   authority: ['admin'],
+          //   component: './Profile/AdvancedProfile',
+          // },
         ],
       },
       // {
