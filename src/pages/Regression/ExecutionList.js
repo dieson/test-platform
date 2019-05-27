@@ -104,7 +104,10 @@ class ExecutionList extends PureComponent {
         {
             title: '执行名称',
             dataIndex: 'name',
-            render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
+            render: (text, record, index) => {
+                const { id } = record;
+                return (<a onClick={() => this.previewItem(id)}>{text}</ a>);
+            }
         },
         {
             title: '描述',
@@ -166,7 +169,7 @@ class ExecutionList extends PureComponent {
 
     //通过数据格式转到type详情页
     previewItem = id => {
-        router.push(`/profile/basic/${id}`);
+        router.push(`/profile/execution-result/${id}`);
     };
 
     componentDidMount() {
