@@ -212,7 +212,7 @@ class TestCaseList extends PureComponent {
         {
             title: '测试集',
             dataIndex: 'testDatasetsInfo.name',
-            render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
+            // render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
         },
         {
             title: '请求数据',

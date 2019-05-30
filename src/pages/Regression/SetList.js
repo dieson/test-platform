@@ -197,7 +197,7 @@ class SetList extends PureComponent {
     {
       title: '测试集',
       dataIndex: 'name',
-      render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
+      // render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
     },
     {
       title: '描述',

@@ -182,7 +182,7 @@ class TypeList extends PureComponent {
     {
       title: '测试类型',
       dataIndex: 'name',
-      render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
+      // render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
     },
     {
       title: '描述',
